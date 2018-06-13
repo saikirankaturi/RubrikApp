@@ -23,7 +23,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddCluster"></activity>
+        <activity android:name=".AddCluster" />
+        <activity android:name=".mainlogin" />
+        <activity android:name=".homepage" />
+        <activity
+            android:name=".infopage"
+            android:label="@string/title_activity_infopage"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".maininfopage"></activity>
     </application>
 
 </manifest>
