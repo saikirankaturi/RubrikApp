@@ -1,18 +1,23 @@
 package com.rubrik.rubrikapp.RestApi;
 
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.util.Base64;
 import android.util.Log;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.RequestFuture;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import com.rubrik.rubrikapp.AppController;
 
 import org.json.JSONObject;
 
@@ -31,10 +36,9 @@ import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
-public class RestApiHelper {
+public class JsonObjectRetriever {
 
-    @SuppressLint("TrulyRandom")
-    public static void handleSSLHandshake() {
+    private static void handleSSLHandshake() {
         try {
             TrustManager[] trustAllCerts = new TrustManager[]{new X509TrustManager() {
                 public X509Certificate[] getAcceptedIssuers() {
@@ -63,49 +67,38 @@ public class RestApiHelper {
         }
     }
 
-    public static void callRest(String url, Context ctx) {
+    public static <T> void getObjectFromRest(
+            String url,
+            final ProgressDialog pDialog,
+            final Class<T> clazz,
+            final JsonObjectVolleyInterface jsonObjectVolleyInterface
+    ) {
         handleSSLHandshake();
-        RequestQueue requestQueue = Volley.newRequestQueue(ctx);
-
-        RequestFuture<JSONObject> future = RequestFuture.newFuture();
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
-                com.android.volley.Request.Method.GET,
+        final String tag_json_obj = "json_obj_req";
+        pDialog.setMessage("Loading...");
+        pDialog.show();
+        GsonRequest<T> jsonObjectRequest =
+            new GsonRequest<T>(
                 url,
+                clazz,
                 null,
-//                future,
-//                future
-                new Response.Listener<JSONObject>() {
+                new Response.Listener<T>() {
                     @Override
-                    public void onResponse(JSONObject response) {
-                        Log.e("Got the response:", response.toString());
+                    public void onResponse(T response) {
+                        Log.d(tag_json_obj, response.toString());
+                        pDialog.hide();
+                        jsonObjectVolleyInterface.onSuccess(response);
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Log.e("Got the error:", error.toString());
+                        VolleyLog.d(tag_json_obj, "Error: " + error.getMessage());
+                        // hide the progress dialog
+                        pDialog.hide();
                     }
                 }
-        ){
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                HashMap<String, String> params = new HashMap<String, String>();
-                String creds = String.format("%s:%s","admin","RubrikAdminPassword");
-                String auth = "Basic " + Base64.encodeToString(creds.getBytes(), Base64.DEFAULT);
-                params.put("Authorization", auth);
-                return params;
-            }
-        };
-        requestQueue.add(jsonObjectRequest);
-//        try {
-//            JSONObject response = future.get(10, TimeUnit.SECONDS);
-//            Log.e("fuckall", response.toString());
-//        } catch (InterruptedException e) {
-//            Log.e("fuckall", "failed");
-//        } catch (ExecutionException e) {
-//            Log.e("fuckall", "failed");
-//        } catch (TimeoutException e) {
-//            Log.e("fuckall", "failed");
-//        }
+            );
+        AppController.getInstance().addToRequestQueue(jsonObjectRequest, tag_json_obj);
     }
 }

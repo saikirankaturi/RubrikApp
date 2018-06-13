@@ -1,7 +1,7 @@
 package com.rubrik.rubrikapp;
 
 import com.rubrik.rubrikapp.RestApi.BasicAuthInterceptor;
-import com.rubrik.rubrikapp.RestApi.BrikCount;
+import com.rubrik.rubrikapp.RestApi.SwaggerObject.BrikCount;
 import com.rubrik.rubrikapp.RestApi.ClusterService;
 
 import org.junit.Test;
