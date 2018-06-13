@@ -1,6 +1,6 @@
 package com.rubrik.rubrikapp.RestApi;
 
-import com.google.gson.annotations.SerializedName;
+import com.rubrik.rubrikapp.RestApi.SwaggerObject.BrikCount;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

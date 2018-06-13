@@ -1,4 +1,4 @@
-package com.rubrik.rubrikapp.RestApi;
+package com.rubrik.rubrikapp.RestApi.SwaggerObject;
 
 import com.google.gson.annotations.SerializedName;
 

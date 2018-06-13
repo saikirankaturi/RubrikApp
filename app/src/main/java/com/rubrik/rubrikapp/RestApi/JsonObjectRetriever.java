@@ -15,6 +15,7 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.RequestFuture;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.rubrik.rubrikapp.AppController;
 
@@ -66,40 +67,38 @@ public class JsonObjectRetriever {
         }
     }
 
-    public static void getJsonObject(String url, final ProgressDialog pDialog) {
+    public static <T> void getObjectFromRest(
+            String url,
+            final ProgressDialog pDialog,
+            final Class<T> clazz,
+            final JsonObjectVolleyInterface jsonObjectVolleyInterface
+    ) {
         handleSSLHandshake();
         final String tag_json_obj = "json_obj_req";
         pDialog.setMessage("Loading...");
         pDialog.show();
-        JsonObjectRequest jsonObjectRequest =
-            new JsonObjectRequest(
-                Request.Method.GET,
-                url, null,
-                new Response.Listener<JSONObject>() {
-
+        GsonRequest<T> jsonObjectRequest =
+            new GsonRequest<T>(
+                url,
+                clazz,
+                null,
+                new Response.Listener<T>() {
                     @Override
-                    public void onResponse(JSONObject response) {
+                    public void onResponse(T response) {
                         Log.d(tag_json_obj, response.toString());
                         pDialog.hide();
+                        jsonObjectVolleyInterface.onSuccess(response);
                     }
-                }, new Response.ErrorListener() {
-
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                VolleyLog.d(tag_json_obj, "Error: " + error.getMessage());
-                // hide the progress dialog
-                pDialog.hide();
-            }
-        }){
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                HashMap<String, String> params = new HashMap<String, String>();
-                String creds = String.format("%s:%s","admin","RubrikAdminPassword");
-                String auth = "Basic " + Base64.encodeToString(creds.getBytes(), Base64.DEFAULT);
-                params.put("Authorization", auth);
-                return params;
-            }
-        };
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        VolleyLog.d(tag_json_obj, "Error: " + error.getMessage());
+                        // hide the progress dialog
+                        pDialog.hide();
+                    }
+                }
+            );
         AppController.getInstance().addToRequestQueue(jsonObjectRequest, tag_json_obj);
     }
 }
