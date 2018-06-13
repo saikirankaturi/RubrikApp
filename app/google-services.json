@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "258775136534",
+    "firebase_url": "https://rubrikapp.firebaseio.com",
+    "project_id": "rubrikapp",
+    "storage_bucket": "rubrikapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:258775136534:android:2f1e9b4613370c6f",
+        "android_client_info": {
+          "package_name": "com.rubrik.rubrikapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "258775136534-oklh6j9uo9nvk5d1b1i6c72vp601mdk1.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "258775136534-oklh6j9uo9nvk5d1b1i6c72vp601mdk1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMXNsu13nZENapwxCYjt_-92hLDcn2Opg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
