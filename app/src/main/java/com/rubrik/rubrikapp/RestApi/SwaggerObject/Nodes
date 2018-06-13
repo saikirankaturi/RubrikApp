@@ -1,0 +1,23 @@
+package com.rubrik.rubrikapp.RestApi.SwaggerObject;
+
+import java.util.List;
+
+public class Nodes {
+    @SerializedName("hasMore")
+    private Boolean hasMoreNodes;
+    public Boolean getHasMoreNodes() {
+        return hasMoreNodes;
+    }
+
+    @SerializedName("data")
+    private List<Node> data;
+    public List<Node> getData() {
+        return data;
+    }
+
+    @SerializedName("total")
+    private Int total;
+    public Int getTotal() {
+        return total;
+    }
+}

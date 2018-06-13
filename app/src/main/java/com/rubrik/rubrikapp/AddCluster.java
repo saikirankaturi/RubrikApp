@@ -10,6 +10,7 @@ import android.view.View;
 import com.rubrik.rubrikapp.RestApi.SwaggerObject.BrikCount;
 import com.rubrik.rubrikapp.RestApi.JsonObjectRetriever;
 import com.rubrik.rubrikapp.RestApi.JsonObjectVolleyInterface;
+import com.rubrik.rubrikapp.RestApi.SwaggerObject.Nodes;
 
 public class AddCluster extends AppCompatActivity {
 
@@ -21,13 +22,13 @@ public class AddCluster extends AppCompatActivity {
 
 
         JsonObjectRetriever.getObjectFromRest(
-            "https://10.33.16.117/api/internal/cluster/me/brik_count",
+            "https://10.33.16.117/api/internal/cluster/me/node",
             progressDialog,
-            BrikCount.class,
-            new JsonObjectVolleyInterface<BrikCount>() {
+            Nodes.class,
+            new JsonObjectVolleyInterface<Nodes>() {
                 @Override
-                public void onSuccess(BrikCount brikCount) {
-                    Log.d("Woah!", brikCount.getBrikCount().toString());
+                public void onSuccess(Nodes nodes) {
+                    Log.d("Woah!", nodes.getData().get(0).getBrikId());
                 }
             }
         );
