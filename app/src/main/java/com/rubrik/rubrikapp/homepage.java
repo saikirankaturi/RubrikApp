@@ -44,7 +44,7 @@ public class homepage extends AppCompatActivity {
     }
 
     public void sendMessage(View view){
-        Intent intent = new Intent(homepage.this, infopage.class);
-        startActivity(intent);
+      //  Intent intent = new Intent(homepage.this, infopage.class);
+       // startActivity(intent);
     }
 }
