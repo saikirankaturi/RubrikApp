@@ -16,9 +16,8 @@ public class homepage extends AppCompatActivity {
 
         getWindow().getDecorView().setBackgroundColor(Color.rgb(173,216,230));
 
-        String clusterip = "10.0.100.207";
-        String clusterid = "brik3";
-        String nodes = "4",  cores = "4", brik = "2", memory = "256GB", SSD = "1.6TB", HDD = "94TB";
+        String clusterip = AppController.getInstance().getClusterIp();
+
     /*
         TextView mText = (TextView) findViewById(R.id.clusteridid);
         mText.setText("Cluster ID : " + clusterid);

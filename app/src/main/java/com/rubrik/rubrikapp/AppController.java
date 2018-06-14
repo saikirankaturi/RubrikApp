@@ -15,7 +15,7 @@ public class AppController extends Application {
 
     private RequestQueue mRequestQueue;
     private ImageLoader mImageLoader;
-
+    private String clusterIp;
     private static AppController mInstance;
 
     @Override
@@ -34,6 +34,14 @@ public class AppController extends Application {
         }
 
         return mRequestQueue;
+    }
+
+    public String getClusterIp() {
+        return clusterIp;
+    }
+
+    public void setClusterIp(String clusterIp) {
+        clusterIp = clusterIp;
     }
 
     public ImageLoader getImageLoader() {
