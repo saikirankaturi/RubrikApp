@@ -32,14 +32,13 @@ public class mainlogin extends AppCompatActivity {
             dlgAlert.setTitle("Invalid credentials");
             dlgAlert.setCancelable(false);
             dlgAlert.setPositiveButton("Ok",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                            findViewById(R.id.ipaddress).refreshDrawableState();
-                            editTextUsername.setText("");
-                            editTextPassword.setText("");
-                        }
-                    });
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        editTextUsername.setText("");
+                        editTextPassword.setText("");
+                    }
+                });
             dlgAlert.create().show();
         }
     }

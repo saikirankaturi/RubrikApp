@@ -40,8 +40,8 @@ public class AppController extends Application {
         return clusterIp;
     }
 
-    public void setClusterIp(String clusterIp) {
-        clusterIp = clusterIp;
+    public void setClusterIp(String clusterIpRHS) {
+        clusterIp = clusterIpRHS;
     }
 
     public ImageLoader getImageLoader() {
