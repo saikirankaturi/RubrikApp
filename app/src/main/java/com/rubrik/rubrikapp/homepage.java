@@ -135,7 +135,7 @@ public class homepage extends AppCompatActivity {
     }
 
     public void sendMessage(View view) {
-        Intent intent = new Intent(homepage.this, ListDisplay.class);
-        getWindow().getDecorView().setBackgroundColor(Color.rgb(173, 216, 230));
+        Intent intent = new Intent(homepage.this, navbar.class);
+        startActivity(intent);
     }
 }
