@@ -10,11 +10,14 @@ import android.graphics.Color;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
+import android.view.View;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
+import com.rubrik.rubrikapp.RestApi.MySingleton;
 
 public class PushNotificationListenService extends FirebaseMessagingService {
     @Override
@@ -25,27 +28,17 @@ public class PushNotificationListenService extends FirebaseMessagingService {
         }
         if(remoteMessage.getNotification() != null){
             Log.d("PushNotificationListen", "message body: " + remoteMessage.getNotification().getBody());
-            sendNotification(remoteMessage.getNotification().getBody());
+            sendNotification(remoteMessage.getNotification());
         }
     }
 
-    private void sendNotification(String body) {
-//        Intent intent = new Intent(this, mainlogin.class);
-//        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT);
-//
-//        Uri notificationSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-//
-//        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, "af")
-//                .setSmallIcon(R.mipmap.ic_launcher)
-//                .setContentTitle("Notification checker")
-//                .setContentText(body)
-//                .setAutoCancel(true)
-//                .setSound(notificationSound)
-//                .setContentIntent(pendingIntent);
-//
-//        NotificationManager notificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
-//        notificationManager.notify(0, notificationBuilder.build());
+    private void sendNotification(RemoteMessage.Notification notification) {
+
+        Boolean success = notification.getTitle().equals("Success");
+
+        Intent intent = new Intent(this, (success) ? notifications.class : ContactSupport.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT);
 
 
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
@@ -63,6 +56,8 @@ public class PushNotificationListenService extends FirebaseMessagingService {
             notificationManager.createNotificationChannel(notificationChannel);
         }
 
+        MySingleton.pushNotificationMessage = notification.getBody();
+        String color = success ? "#06FF12" : "#FF1517";
 
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID);
 
@@ -71,10 +66,12 @@ public class PushNotificationListenService extends FirebaseMessagingService {
                 .setWhen(System.currentTimeMillis())
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setTicker("Hearty365")
+                .setColor(Color.parseColor(color))
                 //     .setPriority(Notification.PRIORITY_MAX)
-                .setContentTitle("Default notification")
-                .setContentText(body)
-                .setContentInfo("Info");
+                .setContentTitle(notification.getTitle())
+                .setContentText(notification.getBody())
+                .setContentInfo("Info")
+                .setContentIntent(pendingIntent);
 
         notificationManager.notify(/*notification id*/1, notificationBuilder.build());
     }

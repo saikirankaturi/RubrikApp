@@ -10,6 +10,7 @@ public class MySingleton {
     private static MySingleton mInstance;
     private RequestQueue mRequestQueue;
     private static Context mCtx;
+    public static String pushNotificationMessage;
 
     private MySingleton(Context context) {
         mCtx = context;

@@ -45,6 +45,11 @@
 
         <activity android:name=".homepage" />
         <activity
+            android:name=".ContactSupport"
+            android:label="@string/title_activity_contact_support"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+
+        <activity
             android:name=".navbar"
             android:label="@string/title_activity_navbar"
             android:theme="@style/AppTheme.NoActionBar" />
