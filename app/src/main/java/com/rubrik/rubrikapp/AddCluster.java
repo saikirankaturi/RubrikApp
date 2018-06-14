@@ -4,6 +4,8 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -25,6 +27,7 @@ public class AddCluster extends AppCompatActivity {
         setContentView(R.layout.activity_add_cluster);
         ProgressDialog progressDialog = new ProgressDialog(this);
 
+        getWindow().getDecorView().setBackgroundColor(Color.rgb(173,216,230));
 
 //        AppController.getInstance().setClusterIp("10.0.100.207");
 //        JsonObjectRetriever.getObjectFromRest(
