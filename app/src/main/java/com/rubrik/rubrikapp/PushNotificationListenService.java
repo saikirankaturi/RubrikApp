@@ -17,6 +17,7 @@ import android.view.View;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
+import com.rubrik.rubrikapp.RestApi.MySingleton;
 
 public class PushNotificationListenService extends FirebaseMessagingService {
     @Override
@@ -32,22 +33,12 @@ public class PushNotificationListenService extends FirebaseMessagingService {
     }
 
     private void sendNotification(RemoteMessage.Notification notification) {
-        Intent intent = new Intent(this, ContactSupport.class);
+
+        Boolean success = notification.getTitle().equals("Success");
+
+        Intent intent = new Intent(this, (success) ? notifications.class : ContactSupport.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT);
-//
-//        Uri notificationSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-//
-//        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, "af")
-//                .setSmallIcon(R.mipmap.ic_launcher)
-//                .setContentTitle("Notification checker")
-//                .setContentText(body)
-//                .setAutoCancel(true)
-//                .setSound(notificationSound)
-//                .setContentIntent(pendingIntent);
-//
-//        NotificationManager notificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
-//        notificationManager.notify(0, notificationBuilder.build());
 
 
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
@@ -65,8 +56,8 @@ public class PushNotificationListenService extends FirebaseMessagingService {
             notificationManager.createNotificationChannel(notificationChannel);
         }
 
-        String color =
-           (notification.getTitle().equals("Success")) ? "#06FF12" : "#FF1517";
+        MySingleton.pushNotificationMessage = notification.getBody();
+        String color = success ? "#06FF12" : "#FF1517";
 
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID);
 
