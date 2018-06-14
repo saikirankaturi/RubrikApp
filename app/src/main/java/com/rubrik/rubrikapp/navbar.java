@@ -43,7 +43,7 @@ public class navbar extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        getWindow().getDecorView().setBackgroundColor(Color.rgb(173,216,230));
+        getWindow().getDecorView().setBackgroundColor(Color.rgb(245,245,255));
 
     }
 

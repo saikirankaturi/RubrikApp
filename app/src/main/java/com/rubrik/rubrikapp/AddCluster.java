@@ -27,7 +27,7 @@ public class AddCluster extends AppCompatActivity {
         setContentView(R.layout.activity_add_cluster);
         ProgressDialog progressDialog = new ProgressDialog(this);
 
-        getWindow().getDecorView().setBackgroundColor(Color.rgb(173,216,230));
+        getWindow().getDecorView().setBackgroundColor(Color.rgb(245,245,255));
 
 //        AppController.getInstance().setClusterIp("10.0.100.207");
 //        JsonObjectRetriever.getObjectFromRest(

@@ -15,7 +15,7 @@ public class mainlogin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainlogin);
-        getWindow().getDecorView().setBackgroundColor(Color.rgb(173,216,230));
+        getWindow().getDecorView().setBackgroundColor(Color.rgb(245,245,255));
 
     }
 
@@ -27,7 +27,7 @@ public class mainlogin extends AppCompatActivity {
         final String password = editTextPassword.getText().toString();
 
         if (username.equals("admin") && password.equals("RubrikAdminPassword")) {
-            Intent intent = new Intent(mainlogin.this, homepage.class);
+            Intent intent = new Intent(mainlogin.this, ClusterSummary.class);
             startActivity(intent);
         } else {
             AlertDialog.Builder dlgAlert = new AlertDialog.Builder(this);
