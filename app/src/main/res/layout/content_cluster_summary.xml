@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".ClusterSummary"
+    tools:showIn="@layout/activity_cluster_summary">
+
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_margin="@dimen/text_margin"-->
+        <!--android:text="@string/large_text" />-->
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:stretchColumns="1">
+    <!--<TableRow>-->
+    <!--<ImageView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="80dp"-->
+        <!--android:layout_marginTop="20dp"-->
+        <!--android:src="@drawable/nodes"/>-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="random\ntext"-->
+    <!--android:textSize="20dp"-->
+    <!--android:textColor="#000"-->
+    <!--android:maxWidth="100px"-->
+        <!--android:layout_marginTop="25dp"-->
+        <!--android:layout_marginLeft="20dp"-->
+        <!--android:layout_centerHorizontal="true"-->
+
+        <!--/>-->
+    <!--</TableRow>-->
+
+
+        <TableRow>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/nodes"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nodes\n4"
+                android:textSize="20dp"
+                android:textColor="#000"
+                android:maxWidth="100px"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="20dp"
+                android:layout_centerHorizontal="true"
+
+                />
+        </TableRow>
+
+        <TableRow>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/cores"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cores\n32"
+                android:textSize="20dp"
+                android:textColor="#000"
+                android:maxWidth="100px"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="20dp"
+                android:layout_centerHorizontal="true"
+
+                />
+        </TableRow>
+
+
+
+        <TableRow>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/memory"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Memory\n256 GB"
+                android:textSize="20dp"
+                android:textColor="#000"
+                android:maxWidth="100px"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="20dp"
+                android:layout_centerHorizontal="true"
+
+                />
+        </TableRow>
+
+
+        <TableRow>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/brikno"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Brik\n1"
+                android:textSize="20dp"
+                android:textColor="#000"
+                android:maxWidth="100px"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="20dp"
+                android:layout_centerHorizontal="true"
+
+                />
+        </TableRow>
+
+
+        <TableRow>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/ssd"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SSD\n1.6 TB"
+                android:textSize="20dp"
+                android:textColor="#000"
+                android:maxWidth="100px"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="20dp"
+                android:layout_centerHorizontal="true"
+
+                />
+        </TableRow>
+
+        <TableRow>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/hdd"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="HDD\n95.3 TB"
+                android:textSize="20dp"
+                android:textColor="#000"
+                android:maxWidth="100px"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="20dp"
+                android:layout_centerHorizontal="true"
+                />
+        </TableRow>
+
+
+
+
+
+
+    </TableLayout>
+    </ScrollView>
+
+
+    <!--try adding the total memory wala shit -->
+
+
+
+</android.support.v4.widget.NestedScrollView>

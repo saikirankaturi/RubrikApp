@@ -16,7 +16,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
@@ -26,24 +25,23 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".mainlogin" />
-        <!--<activity android:name=".list_with_filter"></activity>-->
+        <!-- <activity android:name=".list_with_filter"></activity> -->
 
         <service android:name=".PushNotificationListenService">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
         <service android:name=".PushNotificationService">
             <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
-
 
         <activity android:name=".homepage" />
         <activity
@@ -55,7 +53,17 @@
         <activity android:name=".dashboard" />
         <activity android:name=".notifications" />
         <activity android:name=".reports" />
-        <activity android:name=".vmlist"></activity>
+        <activity android:name=".vmlist" />
+        <activity
+            android:name=".homepage2"
+            android:label="@string/title_activity_homepage2"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ClusterSummary"
+            android:label="@string/title_activity_cluster_summary"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
     </application>
 
 </manifest>
