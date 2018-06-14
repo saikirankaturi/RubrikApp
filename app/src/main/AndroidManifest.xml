@@ -16,7 +16,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <uses-library android:name="org.apache.http.legacy" android:required="false" />
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
 
         <activity
             android:name=".AddCluster"
@@ -27,10 +29,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
-        <activity android:name=".mainlogin"/>
+        <activity android:name=".mainlogin" />
         <activity android:name=".homepage" />
+        <activity
+            android:name=".navbar"
+            android:label="@string/title_activity_navbar"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activity" />
+        <activity android:name=".calc" />
+        <activity android:name=".dashboard" />
+        <activity android:name=".notifications" />
+        <activity android:name=".reports" />
+        <activity android:name=".vmlist"></activity>
     </application>
 
 </manifest>

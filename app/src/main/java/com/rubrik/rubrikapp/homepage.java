@@ -1,5 +1,7 @@
 package com.rubrik.rubrikapp;
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +13,8 @@ public class homepage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
+
+        getWindow().getDecorView().setBackgroundColor(Color.rgb(173,216,230));
 
         String clusterip = "10.0.100.207";
         String clusterid = "brik3";
@@ -43,7 +47,7 @@ public class homepage extends AppCompatActivity {
     }
 
     public void sendMessage(View view){
-      //  Intent intent = new Intent(homepage.this, infopage.class);
-       // startActivity(intent);
+        Intent intent = new Intent(homepage.this, navbar.class);
+        startActivity(intent);
     }
 }
