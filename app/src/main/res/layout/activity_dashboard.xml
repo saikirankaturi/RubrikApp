@@ -36,37 +36,124 @@
             android:layout_height="match_parent"
             android:stretchColumns="1">
 
-            <!--<TableRow>-->
-            <!--<ImageView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:tint="#55ff0000"-->
-            <!--android:src="@drawable/bla"/>-->
-            <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="@string/aboutblaImageText"-->
-            <!--android:textSize="6pt"-->
-            <!--android:textColor="#FFF"-->
-            <!--android:maxWidth="100px"-->
-            <!--/>-->
-            <!--</TableRow>-->
 
             <TableRow>
-                <TextView android:id="@+id/snapshotCount"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/snapshot"/>
+
+                <TextView
+                    android:id="@+id/snapshotCount"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:textColor="#000"
+                    android:maxWidth="100px"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_centerHorizontal="true"
+
+                    />
             </TableRow>
+
             <TableRow>
-                <TextView android:id="@+id/percentDataReduction"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/datareduce"/>
+
+                <TextView
+                    android:id="@+id/percentDataReduction"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:textColor="#000"
+                    android:maxWidth="100px"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_centerHorizontal="true"
+
+                    />
             </TableRow>
+
+
             <TableRow>
-                <TextView android:id="@+id/ArchiveSize"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/protected1"/>
+
+                <TextView
+                    android:id="@+id/ProtectedVmsCount"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:textColor="#000"
+                    android:maxWidth="100px"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_centerHorizontal="true"
+
+                    />
             </TableRow>
+
+
             <TableRow>
-                <TextView android:id="@+id/ProtectedVmsCount"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/archive"/>
+
+                <TextView
+                    android:id="@+id/ArchiveSize"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:textColor="#000"
+                    android:maxWidth="100px"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_centerHorizontal="true"
+
+                    />
             </TableRow>
+
+
             <TableRow>
-                <TextView android:id="@+id/UnprotectedVmsCount"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/unprotected1"/>
+
+                <TextView
+                    android:id="@+id/UnprotectedVmsCount"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:textColor="#000"
+                    android:maxWidth="100px"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_centerHorizontal="true"
+                    />
             </TableRow>
+
         </TableLayout>
     </ScrollView>
 
