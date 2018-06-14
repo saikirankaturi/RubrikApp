@@ -19,14 +19,9 @@
     <string name="title_activity_navbar">navbar</string>
 
     <string-array name="country_arrays">
-        <item>Malaysia</item>
-        <item>United States</item>
-        <item>Indonesia</item>
-        <item>France</item>
-        <item>Italy</item>
-        <item>Singapore</item>
-        <item>New Zealand</item>
-        <item>India</item>
+        <item>Failure</item>
+        <item>Warning</item>
+        <item>Success</item>
     </string-array>
 
     <string name="title_activity_infopage">infopage</string>
