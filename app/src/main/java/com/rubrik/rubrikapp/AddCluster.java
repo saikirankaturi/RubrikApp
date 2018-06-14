@@ -74,6 +74,7 @@ public class AddCluster extends AppCompatActivity {
             dlgAlert.create().show();
         } else {
             Log.d("Woah!!!", inputIp);
+            AppController.getInstance().setClusterIp(inputIp);
             Intent intent = new Intent(AddCluster.this, mainlogin.class);
             startActivity(intent);
         }

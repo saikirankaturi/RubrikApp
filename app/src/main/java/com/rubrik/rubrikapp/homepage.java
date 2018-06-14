@@ -12,7 +12,7 @@ public class homepage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
 
-        String clusterip = "10.0.100.207";
+        String clusterip = AppController.getInstance().getClusterIp();
         String clusterid = "brik3";
         String nodes = "4",  cores = "4", brik = "2", memory = "256GB", SSD = "1.6TB", HDD = "94TB";
     /*
