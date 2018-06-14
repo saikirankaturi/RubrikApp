@@ -98,7 +98,7 @@ public class navbar extends AppCompatActivity
             Intent intent = new Intent(navbar.this, notifications.class);
             startActivity(intent);
         } else if (id == R.id.nav_reports) {
-            Intent intent = new Intent(navbar.this, reports.class);
+            Intent intent = new Intent(navbar.this, Reports.class);
             startActivity(intent);
         } else if (id == R.id.nav_vmlist) {
             Intent intent = new Intent(navbar.this, vmlist.class);

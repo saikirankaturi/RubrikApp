@@ -5,64 +5,58 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".ClusterSummary"
-    tools:showIn="@layout/activity_cluster_summary">
-
+    tools:context=".Reports"
+    tools:showIn="@layout/activity_reports">
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true">
 
-    <TableLayout
+
+
+        <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:stretchColumns="1">
 
         <TableRow>
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="80dp"
-                android:layout_marginTop="20dp"
-                android:src="@drawable/nodes"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Daily Protection Tasks by Status"
+            android:textSize="22dp"
+            android:textColor="#000"
+            android:maxWidth="100px"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="20dp"
+            android:layout_centerHorizontal="true"
+            />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nodes\n4"
-                android:textSize="20dp"
-                android:textColor="#000"
-                android:maxWidth="100px"
-                android:layout_marginTop="25dp"
-                android:layout_marginLeft="20dp"
-                android:layout_centerHorizontal="true"
+    </TableRow>
 
-                />
-        </TableRow>
+    <TableRow>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/cancel"/>
 
-        <TableRow>
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="80dp"
-                android:layout_marginTop="20dp"
-                android:src="@drawable/cores"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancelled\n16 Tasks"
+            android:textSize="20dp"
+            android:textColor="#000"
+            android:maxWidth="100px"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="20dp"
+            android:layout_centerHorizontal="true"
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Cores\n32"
-                android:textSize="20dp"
-                android:textColor="#000"
-                android:maxWidth="100px"
-                android:layout_marginTop="25dp"
-                android:layout_marginLeft="20dp"
-                android:layout_centerHorizontal="true"
+            />
 
-                />
-        </TableRow>
-
+    </TableRow>
 
 
         <TableRow>
@@ -71,12 +65,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="80dp"
                 android:layout_marginTop="20dp"
-                android:src="@drawable/memory"/>
+                android:src="@drawable/fail"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Memory\n256 GB"
+                android:text="Failed\n6 Tasks"
                 android:textSize="20dp"
                 android:textColor="#000"
                 android:maxWidth="100px"
@@ -85,6 +79,77 @@
                 android:layout_centerHorizontal="true"
 
                 />
+
+        </TableRow>
+
+
+
+        <TableRow>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/done"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Success\n112 Tasks"
+                android:textSize="20dp"
+                android:textColor="#000"
+                android:maxWidth="100px"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="20dp"
+                android:layout_centerHorizontal="true"
+                />
+
+        </TableRow>
+
+        <!--</TableLayout>-->
+
+            <!--<View-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="1dp"-->
+                <!--android:background="@android:color/darker_gray"/>-->
+
+
+
+
+<TableRow>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SLA Compliance"
+        android:textSize="22dp"
+        android:textColor="#000"
+        android:maxWidth="100px"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="20dp"
+        android:layout_centerHorizontal="true"
+        />
+</TableRow>
+        <TableRow>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/incom"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="In-Compliance\n767 Objects"
+                android:textSize="20dp"
+                android:textColor="#000"
+                android:maxWidth="100px"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="20dp"
+                android:layout_centerHorizontal="true"
+                />
+
         </TableRow>
 
 
@@ -94,57 +159,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="80dp"
                 android:layout_marginTop="20dp"
-                android:src="@drawable/brikno"/>
+                android:src="@drawable/noncomp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Brik\n1"
-                android:textSize="20dp"
-                android:textColor="#000"
-                android:maxWidth="100px"
-                android:layout_marginTop="25dp"
-                android:layout_marginLeft="20dp"
-                android:layout_centerHorizontal="true"
-
-                />
-        </TableRow>
-
-
-        <TableRow>
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="80dp"
-                android:layout_marginTop="20dp"
-                android:src="@drawable/ssd"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="SSD\n1.6 TB"
-                android:textSize="20dp"
-                android:textColor="#000"
-                android:maxWidth="100px"
-                android:layout_marginTop="25dp"
-                android:layout_marginLeft="20dp"
-                android:layout_centerHorizontal="true"
-
-                />
-        </TableRow>
-
-        <TableRow>
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="80dp"
-                android:layout_marginTop="20dp"
-                android:src="@drawable/hdd"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="HDD\n95.3 TB"
+                android:text="Non-Compliant\n24 Objects"
                 android:textSize="20dp"
                 android:textColor="#000"
                 android:maxWidth="100px"
@@ -152,19 +172,12 @@
                 android:layout_marginLeft="20dp"
                 android:layout_centerHorizontal="true"
                 />
+
         </TableRow>
-
-
 
 
 
 
     </TableLayout>
     </ScrollView>
-
-
-    <!--try adding the total memory wala shit -->
-
-
-
 </android.support.v4.widget.NestedScrollView>

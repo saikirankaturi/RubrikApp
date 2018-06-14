@@ -47,23 +47,23 @@
         <activity
             android:name=".ContactSupport"
             android:label="@string/title_activity_contact_support"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".navbar"
             android:label="@string/title_activity_navbar"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activity" />
         <activity android:name=".calc" />
-        <activity android:name=".dashboard" >
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
+        <activity android:name=".dashboard">
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity android:name=".notifications" />
-        <activity android:name=".reports" />
         <activity android:name=".vmlist" />
         <activity
             android:name=".homepage2"
@@ -72,8 +72,21 @@
         <activity
             android:name=".ClusterSummary"
             android:label="@string/title_activity_cluster_summary"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".finalreport"
+            android:label="@string/title_activity_finalreport"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Reports"
+            android:label="@string/title_activity_reports"
             android:theme="@style/AppTheme.NoActionBar">
+             <!--<intent-filter>-->
+             <!--<action android:name="android.intent.action.MAIN" />-->
 
+
+             <!--<category android:name="android.intent.category.LAUNCHER" />-->
+             <!--</intent-filter>-->
         </activity>
     </application>
 
