@@ -10,8 +10,10 @@ import android.graphics.Color;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
+import android.view.View;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
@@ -25,14 +27,14 @@ public class PushNotificationListenService extends FirebaseMessagingService {
         }
         if(remoteMessage.getNotification() != null){
             Log.d("PushNotificationListen", "message body: " + remoteMessage.getNotification().getBody());
-            sendNotification(remoteMessage.getNotification().getBody());
+            sendNotification(remoteMessage.getNotification());
         }
     }
 
-    private void sendNotification(String body) {
-//        Intent intent = new Intent(this, mainlogin.class);
-//        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT);
+    private void sendNotification(RemoteMessage.Notification notification) {
+        Intent intent = new Intent(this, ContactSupport.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT);
 //
 //        Uri notificationSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 //
@@ -63,6 +65,8 @@ public class PushNotificationListenService extends FirebaseMessagingService {
             notificationManager.createNotificationChannel(notificationChannel);
         }
 
+        String color =
+           (notification.getTitle().equals("Success")) ? "#06FF12" : "#FF1517";
 
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID);
 
@@ -71,10 +75,12 @@ public class PushNotificationListenService extends FirebaseMessagingService {
                 .setWhen(System.currentTimeMillis())
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setTicker("Hearty365")
+                .setColor(Color.parseColor(color))
                 //     .setPriority(Notification.PRIORITY_MAX)
-                .setContentTitle("Default notification")
-                .setContentText(body)
-                .setContentInfo("Info");
+                .setContentTitle(notification.getTitle())
+                .setContentText(notification.getBody())
+                .setContentInfo("Info")
+                .setContentIntent(pendingIntent);
 
         notificationManager.notify(/*notification id*/1, notificationBuilder.build());
     }
