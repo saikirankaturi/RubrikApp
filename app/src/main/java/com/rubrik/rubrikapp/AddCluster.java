@@ -4,6 +4,8 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -13,6 +15,7 @@ import android.widget.EditText;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.rubrik.rubrikapp.RestApi.JsonObjectRetriever;
 import com.rubrik.rubrikapp.RestApi.JsonObjectVolleyInterface;
+import com.rubrik.rubrikapp.RestApi.SwaggerObject.BrikCount;
 import com.rubrik.rubrikapp.RestApi.SwaggerObject.Nodes;
 import com.rubrik.rubrikapp.Utils.GenericUtils;
 
@@ -24,18 +27,21 @@ public class AddCluster extends AppCompatActivity {
         setContentView(R.layout.activity_add_cluster);
         ProgressDialog progressDialog = new ProgressDialog(this);
 
+        getWindow().getDecorView().setBackgroundColor(Color.rgb(173,216,230));
 
-        JsonObjectRetriever.getObjectFromRest(
-            "https://10.33.16.117/api/internal/cluster/me/node",
-            progressDialog,
-            Nodes.class,
-            new JsonObjectVolleyInterface<Nodes>() {
-                @Override
-                public void onSuccess(Nodes nodes) {
-                    Log.d("Woah!", nodes.getData().get(0).getBrikId());
-                }
-            }
-        );
+//        AppController.getInstance().setClusterIp("10.0.100.207");
+//        JsonObjectRetriever.getObjectFromRest(
+//            "internal/cluster/me/brik_count",
+//            progressDialog,
+//            BrikCount.class,
+//            "internal/cluster/me/brik_count",
+//            new JsonObjectVolleyInterface<BrikCount>() {
+//                @Override
+//                public void onSuccess(BrikCount nodes) {
+//                    Log.d("Woah!", nodes.getCount().toString());
+//                }
+//            }
+//        );
     }
 
     public void sendMessage(View view) {
@@ -65,12 +71,11 @@ public class AddCluster extends AppCompatActivity {
             dlgAlert.setCancelable(false);
             dlgAlert.setPositiveButton("Ok",
                     new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                            findViewById(R.id.ipaddress).refreshDrawableState();
-                            editText.setText("");
-                        }
-                    });
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        editText.setText("");
+                    }
+                });
             dlgAlert.create().show();
         } else {
             Log.d("Woah!!!", inputIp);

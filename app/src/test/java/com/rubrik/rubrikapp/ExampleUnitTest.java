@@ -91,7 +91,7 @@ public class ExampleUnitTest {
                 .build();
         ClusterService service = retrofit.create(ClusterService.class);
         Call<BrikCount> brikCount = service.getBrikCountForCluster();
-        System.out.println(brikCount.execute().body().getBrikCount());
+        System.out.println(brikCount.execute().body().getCount());
 //        assertEquals(brikCount, 1L);
     }
 }

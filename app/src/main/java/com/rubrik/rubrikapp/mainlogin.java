@@ -3,6 +3,7 @@ package com.rubrik.rubrikapp;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +15,8 @@ public class mainlogin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainlogin);
+        getWindow().getDecorView().setBackgroundColor(Color.rgb(173,216,230));
+
     }
 
     public void sendMessage(View view)
@@ -32,14 +35,13 @@ public class mainlogin extends AppCompatActivity {
             dlgAlert.setTitle("Invalid credentials");
             dlgAlert.setCancelable(false);
             dlgAlert.setPositiveButton("Ok",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                            findViewById(R.id.ipaddress).refreshDrawableState();
-                            editTextUsername.setText("");
-                            editTextPassword.setText("");
-                        }
-                    });
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        editTextUsername.setText("");
+                        editTextPassword.setText("");
+                    }
+                });
             dlgAlert.create().show();
         }
     }

@@ -68,9 +68,10 @@ public class JsonObjectRetriever {
     }
 
     public static <T> void getObjectFromRest(
-            String url,
+            final String url,
             final ProgressDialog pDialog,
             final Class<T> clazz,
+            final String TAG,
             final JsonObjectVolleyInterface jsonObjectVolleyInterface
     ) {
         handleSSLHandshake();
@@ -79,13 +80,13 @@ public class JsonObjectRetriever {
         pDialog.show();
         GsonRequest<T> jsonObjectRequest =
             new GsonRequest<T>(
-                url,
+                "https://" + AppController.getInstance().getClusterIp() + "/api/" + url,
                 clazz,
                 null,
                 new Response.Listener<T>() {
                     @Override
                     public void onResponse(T response) {
-                        Log.d(tag_json_obj, response.toString());
+                        Log.d(TAG, response.toString());
                         pDialog.hide();
                         jsonObjectVolleyInterface.onSuccess(response);
                     }
@@ -93,8 +94,8 @@ public class JsonObjectRetriever {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        VolleyLog.d(tag_json_obj, "Error: " + error.getMessage());
-                        // hide the progress dialog
+                        VolleyLog.d(TAG, "Error: " + error.getMessage());
+                        error.printStackTrace();
                         pDialog.hide();
                     }
                 }
