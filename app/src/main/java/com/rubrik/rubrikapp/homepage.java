@@ -33,7 +33,7 @@ public class homepage extends AppCompatActivity {
         final ProgressDialog progressDialog = new ProgressDialog(this);
         String clusterIp = AppController.getInstance().getClusterIp();
         TextView mText = (TextView) findViewById(R.id.clusterip1);
-        mText.setText("Cluster IP : " + clusterIp);
+        mText.setText("Cluster IP\n" + clusterIp);
         JsonObjectRetriever.getObjectFromRest(
                 "internal/cluster/me/brik_count",
                 progressDialog,

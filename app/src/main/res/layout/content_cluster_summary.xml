@@ -19,6 +19,7 @@
         android:layout_height="match_parent"
         android:stretchColumns="1">
 
+
         <TableRow>
             <ImageView
                 android:layout_width="wrap_content"
@@ -28,10 +29,61 @@
                 android:src="@drawable/nodes"/>
 
             <TextView
+                android:id="@id/clusterip1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nodes\n4"
                 android:textSize="20dp"
+                android:textColor="#000"
+                android:maxWidth="100px"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="20dp"
+                android:layout_centerHorizontal="true"
+
+                />
+        </TableRow>
+
+
+        <TableRow>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/nodes"/>
+
+            <TextView
+                android:id="@id/clusterName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cluster Name\nbrik3"
+                android:textSize="20dp"
+                android:textColor="#000"
+                android:maxWidth="100px"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="20dp"
+                android:layout_centerHorizontal="true"
+
+                />
+        </TableRow>
+
+
+
+
+
+        <TableRow>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/nodes"/>
+
+            <TextView
+                android:id="@id/noOfNodes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:text="Nodes\n4"
                 android:textColor="#000"
                 android:maxWidth="100px"
                 android:layout_marginTop="25dp"
@@ -50,9 +102,10 @@
                 android:src="@drawable/cores"/>
 
             <TextView
+                android:id="@id/cores"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cores\n32"
+                android:text="Cores\n4"
                 android:textSize="20dp"
                 android:textColor="#000"
                 android:maxWidth="100px"
@@ -74,6 +127,7 @@
                 android:src="@drawable/memory"/>
 
             <TextView
+                android:id="@id/memory1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Memory\n256 GB"
@@ -97,6 +151,7 @@
                 android:src="@drawable/brikno"/>
 
             <TextView
+                android:id="@+id/noOfBriks"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Brik\n1"
@@ -120,6 +175,7 @@
                 android:src="@drawable/ssd"/>
 
             <TextView
+                android:id="@id/SSD"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="SSD\n1.6 TB"
@@ -142,6 +198,7 @@
                 android:src="@drawable/hdd"/>
 
             <TextView
+                android:id="@id/HDD"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="HDD\n95.3 TB"
